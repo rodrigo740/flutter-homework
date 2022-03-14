@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Home Page'),
+      home: const MyHomePage(title: 'Stargazer'),
     );
   }
 }
@@ -37,22 +37,55 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Container(
-          child: Column(
+          title: const Text('Stargazer'),
+          centerTitle: true,
+          backgroundColor: Colors.transparent),
+      body: Stack(
         children: [
-          Container(child: Image.asset('images/solar_system.jpg')),
+          Image.asset(
+            'images/solar_system.jpg',
+            fit: BoxFit.cover,
+            height: double.maxFinite,
+            width: double.maxFinite,
+          ),
           Container(
-              child: Expanded(
-            child: AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Text('asdasda'),
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                    color: Colors.amber,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: const [
+                            Text('Solar System',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    backgroundColor: Colors.amber))
+                          ],
+                        ),
+                        Row(
+                          children: const [
+                            Expanded(
+                                child: Text(
+                                    'O Sistema Solar compreende o conjunto constituído pelo Sol e todos os corpos celestes que estão sob seu domínio gravitacional. A estrela central, maior componente do sistema, respondendo por mais de 99,85% da massa total, gera sua energia através da fusão de hidrogênio em hélio, dois de seus principais constituintes.',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        backgroundColor: Colors.amber)))
+                          ],
+                        ),
+                      ],
+                    ))
+              ],
             ),
-          ))
+          )
         ],
-      )),
+      ),
       drawer: Drawer(
           child: ListView(
         padding: EdgeInsets.zero,
