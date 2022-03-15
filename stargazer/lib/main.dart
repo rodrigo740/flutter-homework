@@ -50,40 +50,49 @@ class _MyHomePageState extends State<MyHomePage> {
             height: double.maxFinite,
             width: double.maxFinite,
           ),
-          Container(
+          SingleChildScrollView(
+              child: Container(
             alignment: Alignment.bottomCenter,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    color: Colors.amber,
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Colors.yellow, Colors.cyan],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter)),
                     child: Column(
                       children: [
                         Row(
                           children: const [
-                            Text('Solar System',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    backgroundColor: Colors.amber))
+                            Padding(
+                                padding: EdgeInsets.all(15),
+                                child: Text(
+                                  'Solar System',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(color: Colors.white),
+                                ))
                           ],
                         ),
                         Row(
                           children: const [
                             Expanded(
-                                child: Text(
-                                    'O Sistema Solar compreende o conjunto constituído pelo Sol e todos os corpos celestes que estão sob seu domínio gravitacional. A estrela central, maior componente do sistema, respondendo por mais de 99,85% da massa total, gera sua energia através da fusão de hidrogênio em hélio, dois de seus principais constituintes.',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        backgroundColor: Colors.amber)))
+                                child: Padding(
+                              padding: EdgeInsets.all(15),
+                              child: Text(
+                                  'O Sistema Solar compreende o conjunto constituído pelo Sol e todos os corpos celestes que estão sob seu domínio gravitacional. A estrela central, maior componente do sistema, respondendo por mais de 99,85% da massa total, gera sua energia através da fusão de hidrogênio em hélio, dois de seus principais constituintes.',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(color: Colors.white)),
+                            ))
                           ],
                         ),
                       ],
                     ))
               ],
             ),
-          )
+          ))
         ],
       ),
       drawer: Drawer(
