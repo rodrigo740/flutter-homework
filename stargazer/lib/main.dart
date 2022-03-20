@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'basicPage1.dart';
-import 'basicPage2.dart';
-
-import 'dbclasses.dart';
-
-import 'dart:async';
-
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+//import 'basicPage1.dart';
+//import 'basicPage2.dart';
+//import 'cometPage.dart';
+import 'cometWidget.dart';
+import 'homePageWidget.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int num = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text('Stargazer'),
           centerTitle: true,
           backgroundColor: Colors.transparent),
-      body: BasicPage1(),
+      body: HomePageWidget(),
       drawer: Drawer(
           child: ListView(
         padding: EdgeInsets.zero,

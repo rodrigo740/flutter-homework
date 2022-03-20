@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class BasicPage1 extends StatelessWidget {
   const BasicPage1({Key? key}) : super(key: key);
@@ -10,7 +9,7 @@ class BasicPage1 extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            'images/solar_system.jpg',
+            'assets/images/solar_system.jpg',
             fit: BoxFit.cover,
             height: double.maxFinite,
             width: double.maxFinite,
