@@ -33,27 +33,73 @@ class _CometWidgetState extends State<CometWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: isLoading
-            ? Center(child: CircularProgressIndicator())
-            : Padding(
-                padding: EdgeInsets.all(15),
-                child: ListView(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  children: [
-                    Text(
-                      star.name,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+            ? const Center(child: CircularProgressIndicator())
+            : Stack(
+                children: [
+                  Image.asset(
+                    'assets/images/homepage.png',
+                    fit: BoxFit.cover,
+                    height: double.maxFinite,
+                    width: double.maxFinite,
+                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child: Text(
+                                      star.name,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 35,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child: Text(
+                                      star.description,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      )),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: ElevatedButton(
+                      child: const Text(
+                        'Go Back',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
                       ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      star.description,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ));
   }
 }

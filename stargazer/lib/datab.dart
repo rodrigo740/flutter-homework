@@ -33,11 +33,11 @@ class DBProvider {
   }
 
   _initDB() async {
-    String path = join(await getDatabasesPath(), 'stars_database.db');
+    String path = join(await getDatabasesPath(), 'starsDatabase.db');
     return await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE stars(id INTEGER PRIMARY KEY, name TEXT, description TEXT)');
+          'CREATE TABLE stars(id INTEGER PRIMARY KEY, name TEXT, description TEXT, image TEXT)');
     });
   }
 
@@ -55,8 +55,9 @@ class DBProvider {
 
 // A method that retrieves all the stars from the stars table.
   Future<List<Star>> stars() async {
+    final db = await instance.database;
     // Query the table for all The Stars.
-    final List<Map<String, dynamic>> maps = await _database!.query('stars');
+    final List<Map<String, dynamic>> maps = await db.query('stars');
 
     // Convert the List<Map<String, dynamic> into a List<Star>.
     return List.generate(maps.length, (i) {
@@ -64,6 +65,7 @@ class DBProvider {
         id: maps[i]['id'],
         name: maps[i]['name'],
         description: maps[i]['description'],
+        image: maps[i]['image'],
       );
     });
   }

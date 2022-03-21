@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'datab.dart';
-import 'dbclasses.dart';
+import 'package:stargazer/basicPage1.dart';
+import 'package:stargazer/cometPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    int num = 1;
     return Scaffold(
         body: isLoading
             ? const Center(child: CircularProgressIndicator())
@@ -45,19 +47,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         child: Column(
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsets.all(15),
+                                    padding: const EdgeInsets.all(15),
                                     child: Text(
-                                      'Ready To Take Off to Another Planet',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 35,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                        'Ready To Take Off to Another Planet?',
+                                        textAlign: TextAlign.left,
+                                        style: GoogleFonts.lobster(
+                                            textStyle: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 35,
+                                        ))),
                                   ),
                                 )
                               ],
@@ -73,7 +74,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 22,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ))
@@ -82,15 +82,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ],
                         ),
                       )),
-                  const Align(
+                  Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          'asd',
-                        )),
+                      child: const Text(
+                        'Explore More',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => BasicPage1()));
+                      },
+                    ),
                   )
                 ],
               ));
+  }
+}
+
+class NewScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('New Screen')),
+      body: Center(
+        child: Text(
+          'This is a new screen',
+          style: TextStyle(fontSize: 24.0),
+        ),
+      ),
+    );
   }
 }

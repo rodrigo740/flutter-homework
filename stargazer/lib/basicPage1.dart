@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'selectionPage.dart';
 
 class BasicPage1 extends StatelessWidget {
   const BasicPage1({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class BasicPage1 extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            'assets/images/solar_system.jpg',
+            'assets/images/homepage.png',
             fit: BoxFit.cover,
             height: double.maxFinite,
             width: double.maxFinite,
@@ -17,44 +18,67 @@ class BasicPage1 extends StatelessWidget {
           Container(
               alignment: Alignment.center,
               child: SingleChildScrollView(
-                  child: Container(
-                child: Column(
-                  children: [
-                    Container(
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                                colors: [Colors.yellow, Colors.cyan],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter)),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: const [
-                                Padding(
-                                    padding: EdgeInsets.all(15),
-                                    child: Text(
-                                      'Solar System',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(color: Colors.white),
-                                    ))
-                              ],
+                  child: Column(
+                children: [
+                  Container(
+                    width: 370,
+                    height: 120,
+                    child: Card(
+                        color: Colors.white.withOpacity(0.7),
+                        child: Column(children: [
+                          ListTile(
+                            leading: const Icon(
+                              Icons.star_border,
+                              size: 100,
                             ),
-                            Row(
-                              children: const [
-                                Expanded(
-                                    child: Padding(
-                                  padding: EdgeInsets.all(15),
-                                  child: Text(
-                                      'O Sistema Solar compreende o conjunto constituído pelo Sol e todos os corpos celestes que estão sob seu domínio gravitacional. A estrela central, maior componente do sistema, respondendo por mais de 99,85% da massa total, gera sua energia através da fusão de hidrogênio em hélio, dois de seus principais constituintes.',
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(color: Colors.white)),
-                                ))
-                              ],
+                            title: const Text('Comets List'),
+                            subtitle: const Text('Awesome Comets inside!'),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const SelectionPage()));
+                            },
+                          ),
+                        ])),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 370,
+                    height: 120,
+                    child: Card(
+                        color: Colors.white.withOpacity(0.7),
+                        child: Column(children: const [
+                          ListTile(
+                            leading: Icon(
+                              Icons.star_border,
+                              size: 100,
                             ),
-                          ],
-                        ))
-                  ],
-                ),
+                            title: Text('Comets List'),
+                            subtitle: Text('Awesome Comets inside!'),
+                          ),
+                        ])),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 370,
+                    height: 120,
+                    child: Card(
+                        color: Colors.white.withOpacity(0.7),
+                        child: Column(children: const [
+                          ListTile(
+                            leading: Icon(
+                              Icons.star_border,
+                              size: 100,
+                            ),
+                            title: Text('Comets List'),
+                            subtitle: Text('Awesome Comets inside!'),
+                          ),
+                        ])),
+                  )
+                ],
               )))
         ],
       ),

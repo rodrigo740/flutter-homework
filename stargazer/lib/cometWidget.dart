@@ -57,7 +57,7 @@ class _CometWidgetState extends State<CometWidget> {
                         child: Text(
                           star.description,
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 18),
+                              color: Colors.white, fontSize: 18),
                         ),
                       ),
                     ],
