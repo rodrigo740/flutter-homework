@@ -201,7 +201,9 @@ class DBProvider {
       id: 0,
       name: 'Halley\'s Comet',
       description:
-          'Cometa Halley, oficialmente designado 1P/Halley, é um cometa periódico, visível na Terra a cada 75 or 76 anos. O Halley é o único cometa de curto período que é regularmente visível a olho nu da Terra, e o único cometa a olho nu a aparecer nos céus duas vezes durante uma só geração humana.',
+          '''Halley's Comet or Comet Halley, officially designated 1P/Halley, is a short-period comet visible from Earth every 75-76 years. Halley is the only known short-period comet that is regularly visible to the naked eye from Earth, and thus the only naked-eye comet that can appear twice in a human lifetime. Halley last appeared in the inner parts of the Solar System in 1986 and will next appear in mid-2061.
+
+Halley's periodic returns to the inner Solar System have been observed and recorded by astronomers around the world since at least 240 BC. But it was not until 1705 that the English astronomer Edmond Halley understood that these appearances were reappearances of the same comet. As a result of this discovery, the comet is now named after Halley.''',
       image: img64,
     );
 
@@ -228,9 +230,9 @@ For observers in the northern hemisphere, the comet could be seen on the northwe
       id: 2,
       name: 'Shoemaker-Levy 9',
       description:
-          '''Shoemaker-Levy 9 (formalmente designado como D/1993 F2) foi um cometa descoberto pelos astrônomos Carolyn Shoemaker, Eugene Shoemaker e David H. Levy em 24 de março de 1993, em uma fotografia tirada pelo telescópio Schmidt do Observatório Palomar na Califórnia. Esse cometa se partiu em pedaços e colidiu com Júpiter em julho de 1994, fornecendo a primeira observação direta de uma colisão extraterrestre entre dois corpos do Sistema Solar. Isso gerou muita cobertura na mídia, e o cometa foi observado por astrônomos do mundo inteiro. A colisão também forneceu novas informações sobre Júpiter e destacou sua função em reduzir os detritos espaciais no sistema solar interior. Ele foi o primeiro cometa a ser visto orbitando um planeta, e provavelmente foi capturado por Júpiter cerca 25 anos antes do impacto.
+          '''Comet Shoemaker-Levy 9 (formally designated D/1993 F2) broke apart in July 1992 and collided with Jupiter in July 1994, providing the first direct observation of an extraterrestrial collision of Solar System objects. This generated a large amount of coverage in the popular media, and the comet was closely observed by astronomers worldwide. The collision provided new information about Jupiter and highlighted its possible role in reducing space debris in the inner Solar System.
 
-Cálculos mostraram que o cometa passou o limite de Roche de Júpiter em julho de 1992, e as forças de maré do planeta fizeram com que ele fosse fragmentado em vários pedaços de até 2 km de diâmetro. Esses fragmentos colidiram no hemisfério sul de Júpiter entre 16 de julho e 22 de julho de 1994, a uma velocidade de 60 km/s. As manchas que o impacto causou foram mais fáceis de visualizar do que a Grande Mancha Vermelha e ficaram visíveis durante meses.''',
+The comet was discovered by astronomers Carolyn and Eugene M. Shoemaker and David Levy in 1993. Shoemaker-Levy 9 (SL9) had been captured by Jupiter and was orbiting the planet at the time. It was located on the night of March 24 in a photograph taken with the 46 cm (18 in) Schmidt telescope at the Palomar Observatory in California. It was the first active comet observed to be orbiting a planet, and had probably been captured by Jupiter around 20 to 30 years earlier.''',
       image: img64,
     );
 

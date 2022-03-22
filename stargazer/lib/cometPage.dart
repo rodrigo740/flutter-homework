@@ -2,15 +2,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'dbclasses.dart';
 import 'datab.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class SelectionPage extends StatefulWidget {
-  const SelectionPage({Key? key}) : super(key: key);
+class CometPage extends StatefulWidget {
+  const CometPage({Key? key}) : super(key: key);
 
   @override
-  State<SelectionPage> createState() => _SelectionPageState();
+  State<CometPage> createState() => _CometPageState();
 }
 
-class _SelectionPageState extends State<SelectionPage> {
+class _CometPageState extends State<CometPage> {
   late List<Star> stars;
   bool isLoading = false;
 
@@ -32,11 +33,12 @@ class _SelectionPageState extends State<SelectionPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          title: const Text('All Comets',
-              style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  backgroundColor: Colors.transparent)),
+          title: Text('All Comets',
+              style: GoogleFonts.lobster(
+                  textStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 35,
+              ))),
           backgroundColor: Colors.transparent),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -64,18 +66,25 @@ class _SelectionPageState extends State<SelectionPage> {
                             child: SingleChildScrollView(
                               child: Card(
                                   child: Padding(
-                                      padding: const EdgeInsets.all(15),
+                                      padding: const EdgeInsets.all(8),
                                       child: Center(
                                         child: Column(
                                           children: [
-                                            Image.memory(stars[0]
-                                                .dataFromBase64String(
-                                                    stars[index].image)),
-                                            Text(
-                                              stars[index].description,
-                                              style: const TextStyle(
-                                                  color: Colors.black),
+                                            Image.memory(
+                                              stars[0].dataFromBase64String(
+                                                  stars[index].image),
+                                              width: 300,
+                                              height: 300,
                                             ),
+                                            Padding(
+                                              padding: const EdgeInsets.all(8),
+                                              child: Text(
+                                                stars[index].description,
+                                                style: const TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 17),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ))),

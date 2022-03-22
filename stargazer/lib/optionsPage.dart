@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stargazer/galaxyPage.dart';
+import 'galaxyPage.dart';
 import 'cometPage.dart';
 import 'starsPage.dart';
-import 'my_flutter_app_icons.dart';
+import 'custom_icons_icons.dart';
 
 class BasicPage1 extends StatelessWidget {
   const BasicPage1({Key? key}) : super(key: key);
@@ -39,14 +39,14 @@ class BasicPage1 extends StatelessWidget {
                         child: Column(children: [
                           ListTile(
                             leading: const Icon(
-                              MyFlutterApp.comet_svgrepo_com,
-                              size: 100,
+                              CustomIcons.comet_svgrepo_com,
+                              size: 90,
                             ),
                             title: const Text('Comets List'),
                             subtitle: const Text('Awesome Comets inside!'),
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const SelectionPage()));
+                                  builder: (context) => const CometPage()));
                             },
                           ),
                         ])),
@@ -63,7 +63,7 @@ class BasicPage1 extends StatelessWidget {
                           ListTile(
                             leading: const Icon(
                               Icons.star_border,
-                              size: 100,
+                              size: 90,
                             ),
                             title: const Text('Stars List'),
                             subtitle: const Text('Awesome Stars inside!'),
@@ -85,8 +85,8 @@ class BasicPage1 extends StatelessWidget {
                         child: Column(children: [
                           ListTile(
                             leading: const Icon(
-                              Icons.star_border,
-                              size: 100,
+                              CustomIcons.earth,
+                              size: 90,
                             ),
                             title: const Text('Galaxies List'),
                             subtitle: const Text('Awesome Galaxies inside!'),

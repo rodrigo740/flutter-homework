@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'galaxyPage.dart';
 import 'homePageWidget.dart';
+import 'cometPage.dart';
+
+import 'starsPage.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -56,26 +60,38 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
-            child: Text('Menu'),
+            child: Text(
+              'Menu',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
-          ListTile(
-            title: const Text('Item 1'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text('Item 2'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text('Item 3'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+          ListView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            children: ListTile.divideTiles(context: context, tiles: [
+              ListTile(
+                title: const Text('Comets'),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => CometPage()));
+                },
+              ),
+              ListTile(
+                title: const Text('Stars'),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => StarsPage()));
+                },
+              ),
+              ListTile(
+                title: const Text('Galaxies'),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => GalaxyPage()));
+                },
+              ),
+            ]).toList(),
+          )
         ],
       )),
     );
