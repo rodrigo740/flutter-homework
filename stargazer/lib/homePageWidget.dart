@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stargazer/basicPage1.dart';
-import 'package:stargazer/cometPage.dart';
+import 'package:stargazer/optionsPage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dbclasses.dart';
+import 'datab.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -11,9 +12,9 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  //late List<Star> stars;
+  late List<Star> stars;
   bool isLoading = false;
-  /*
+
   @override
   void initState() {
     super.initState();
@@ -23,9 +24,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   Future refreshStar() async {
     setState(() => isLoading = true);
-    this.stars = await DBProvider.instance.stars();
+    this.stars = await DBProvider.instance.completeDB();
     setState(() => isLoading = false);
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     child: Padding(
                                   padding: EdgeInsets.all(15),
                                   child: Text(
-                                    'A comet is an icy, small Solar System body that, when passing close to the Sun, warms and begins to release gases, a process that is called outgassing. This produces a visible atmosphere or coma, and sometimes also a tail.',
+                                    'With this awesome app you will be able to explore a little about our universe, press the button below to start this adventure!',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       color: Colors.white,
@@ -83,21 +84,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       )),
                   Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ElevatedButton(
-                      child: const Text(
-                        'Explore More',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => BasicPage1()));
-                      },
-                    ),
-                  )
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 50),
+                        child: ElevatedButton(
+                          child: const Text(
+                            'Explore More',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => BasicPage1()));
+                          },
+                        ),
+                      ))
                 ],
               ));
   }

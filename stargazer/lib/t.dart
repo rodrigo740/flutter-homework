@@ -178,6 +178,20 @@ void main() async {
     version: 1,
   );
 
+  Future<void> deleteStar(int id) async {
+    // Get a reference to the database.
+    final db = await database;
+
+    // Remove the Star from the database.
+    await db.delete(
+      'stars',
+      // Use a `where` clause to delete a specific star.
+      where: 'id = ?',
+      // Pass the Stars's id as a whereArg to prevent SQL injection.
+      whereArgs: [id],
+    );
+  }
+
 // Define a function that inserts stars into the database
   Future<void> insertStar(Star star) async {
     // Get a reference to the database.
@@ -249,6 +263,9 @@ void main() async {
 
   await insertStar(shoemaker);
 
+  deleteStar(0);
+  deleteStar(1);
+  deleteStar(2);
   List<Star> s = await stars();
 
   // Now, use the method above to retrieve all the stars.

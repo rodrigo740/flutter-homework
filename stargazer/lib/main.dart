@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-//import 'basicPage1.dart';
-//import 'basicPage2.dart';
-//import 'cometPage.dart';
-import 'cometWidget.dart';
 import 'homePageWidget.dart';
 
 void main() {
@@ -39,13 +35,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int num = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          title: const Text('Stargazer'),
+          title: const Text('Stargazer',
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.transparent)),
           centerTitle: true,
           backgroundColor: Colors.transparent),
       body: HomePageWidget(),

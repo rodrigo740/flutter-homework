@@ -1,18 +1,16 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:stargazer/cometPage.dart';
 import 'dbclasses.dart';
 import 'datab.dart';
 
-class SelectionPage extends StatefulWidget {
-  const SelectionPage({Key? key}) : super(key: key);
+class StarsPage extends StatefulWidget {
+  const StarsPage({Key? key}) : super(key: key);
 
   @override
-  State<SelectionPage> createState() => _SelectionPageState();
+  State<StarsPage> createState() => _StarsPageState();
 }
 
-class _SelectionPageState extends State<SelectionPage> {
+class _StarsPageState extends State<StarsPage> {
   late List<Star> stars;
   bool isLoading = false;
 
@@ -32,12 +30,13 @@ class _SelectionPageState extends State<SelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-          title: const Text('All Comets',
+          title: const Text('All Stars',
               style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              )),
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.transparent)),
           backgroundColor: Colors.transparent),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -49,23 +48,24 @@ class _SelectionPageState extends State<SelectionPage> {
                   height: double.maxFinite,
                   width: double.maxFinite,
                 ),
+                BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+                  child: Container(),
+                ),
                 Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(50),
-                    width: 360.0,
+                    margin: const EdgeInsets.fromLTRB(40, 150, 40, 90),
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: stars.length,
                       itemBuilder: (context, index) {
                         return SizedBox(
                             width: 300,
-                            child: Card(
-                              child: ClipRect(
-                                child: BackdropFilter(
-                                    filter:
-                                        ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                                    child: Padding(
-                                        padding: const EdgeInsets.all(15),
+                            height: 600,
+                            child: SingleChildScrollView(
+                              child: Card(
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(15),
+                                      child: Center(
                                         child: Column(
                                           children: [
                                             Image.memory(stars[0]
@@ -77,30 +77,11 @@ class _SelectionPageState extends State<SelectionPage> {
                                                   color: Colors.black),
                                             ),
                                           ],
-                                        ))),
-                              ),
+                                        ),
+                                      ))),
                             ));
                       },
-
-                      /*
-                            for (var i = 0; i < stars.length; i++) {
-                              
-                            }
-                            Card(
-                                child: ClipRect(
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                                child: Container(
-                                  width: 360.0,
-                                  height: 450.0,
-                                  child: Text(
-                                    stars[0].description,
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ))*/
-                    ))
+                    )),
               ],
             ),
     );

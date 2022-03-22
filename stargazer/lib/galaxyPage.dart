@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'dbclasses.dart';
 import 'datab.dart';
 
-class SelectionPage extends StatefulWidget {
-  const SelectionPage({Key? key}) : super(key: key);
+class GalaxyPage extends StatefulWidget {
+  const GalaxyPage({Key? key}) : super(key: key);
 
   @override
-  State<SelectionPage> createState() => _SelectionPageState();
+  State<GalaxyPage> createState() => _GalaxyPageState();
 }
 
-class _SelectionPageState extends State<SelectionPage> {
+class _GalaxyPageState extends State<GalaxyPage> {
   late List<Star> stars;
   bool isLoading = false;
 
@@ -23,7 +23,7 @@ class _SelectionPageState extends State<SelectionPage> {
 
   Future refreshStar() async {
     setState(() => isLoading = true);
-    this.stars = await DBProvider.instance.comets();
+    this.stars = await DBProvider.instance.galaxys();
     setState(() => isLoading = false);
   }
 
@@ -32,7 +32,7 @@ class _SelectionPageState extends State<SelectionPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          title: const Text('All Comets',
+          title: const Text('All Stars',
               style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,

@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
-import 'selectionPage.dart';
+import 'package:stargazer/galaxyPage.dart';
+import 'cometPage.dart';
+import 'starsPage.dart';
+import 'my_flutter_app_icons.dart';
 
 class BasicPage1 extends StatelessWidget {
   const BasicPage1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+          title: const Text('',
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.transparent)),
+          backgroundColor: Colors.transparent),
+      body: Stack(
         children: [
           Image.asset(
             'assets/images/homepage.png',
@@ -28,7 +39,7 @@ class BasicPage1 extends StatelessWidget {
                         child: Column(children: [
                           ListTile(
                             leading: const Icon(
-                              Icons.star_border,
+                              MyFlutterApp.comet_svgrepo_com,
                               size: 100,
                             ),
                             title: const Text('Comets List'),
@@ -48,14 +59,18 @@ class BasicPage1 extends StatelessWidget {
                     height: 120,
                     child: Card(
                         color: Colors.white.withOpacity(0.7),
-                        child: Column(children: const [
+                        child: Column(children: [
                           ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.star_border,
                               size: 100,
                             ),
-                            title: Text('Comets List'),
-                            subtitle: Text('Awesome Comets inside!'),
+                            title: const Text('Stars List'),
+                            subtitle: const Text('Awesome Stars inside!'),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const StarsPage()));
+                            },
                           ),
                         ])),
                   ),
@@ -67,14 +82,18 @@ class BasicPage1 extends StatelessWidget {
                     height: 120,
                     child: Card(
                         color: Colors.white.withOpacity(0.7),
-                        child: Column(children: const [
+                        child: Column(children: [
                           ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.star_border,
                               size: 100,
                             ),
-                            title: Text('Comets List'),
-                            subtitle: Text('Awesome Comets inside!'),
+                            title: const Text('Galaxies List'),
+                            subtitle: const Text('Awesome Galaxies inside!'),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const GalaxyPage()));
+                            },
                           ),
                         ])),
                   )
